@@ -1,0 +1,6 @@
+<% @articles.each do |article| %>
+    <h1><%= article.title %> <%= link_to '', article, method: 'delete', class: 'fa fa-trash' %></h1>
+    <div>
+      <%= article.body %>
+    </div>
+<% end %>
