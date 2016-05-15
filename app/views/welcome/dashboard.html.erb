@@ -1,0 +1,12 @@
+<% @articles.each do |article| %>
+    <h1>
+      <%= link_to article.title, article, class: 'fa fa-pencil-square-o' %>
+    </h1>
+    <div>
+      <%= link_to '', article, method: 'delete', class: 'fa fa-trash' %>
+      <% if article.may_publish? %>
+          <%= link_to 'Publish', "/articles/#{article.id}/publish", method: 'put', class: 'fa fa-leanpub' %>
+          <%= article.body %>
+      <% end %>
+    </div>
+<% end %>
