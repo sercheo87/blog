@@ -3,9 +3,16 @@
 <% unless @article.user.nil? %>
     <p>Escrito por: <%= @article.user.email %></p>
 <% end %>
+
+<% @article.categories.each do |category| %>
+    <%= link_to category.name, category, class: 'label', style: "background-color: #{category.color}" %>
+<% end %>
+
+
 <div class="field">
   <%= image_tag @article.cover.url(:thumb) %>
 </div>
+
 <p>Visitas: <%= @article.visits_count %></p>
 <div>
   <%= @article.body %>

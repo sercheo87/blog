@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
   #GET /articles/new
   def new
     @article = Article.new
+    @categories = Category.all
   end
 
   #POST /articles
@@ -25,6 +26,7 @@ class ArticlesController < ApplicationController
     #@article = Article.new(article_params)
 
     @article = current_user.articles.new(article_params)
+    @article.categories = params[:categories]
 
     # @article.valid?
     # @article.invalid?
@@ -65,6 +67,6 @@ class ArticlesController < ApplicationController
 =end
 
   def article_params
-    params.require(:article).permit(:title, :body, :cover)
+    params.require(:article).permit(:title, :body, :cover, :categories)
   end
 end
