@@ -10,27 +10,30 @@
 <div>
   <h3>Comentarios</h3>
   <%= render 'comments/form' %>
-  <% @article.comments.each do |comment| %>
-      <div class="row">
-        <div class="col-sm-1">
-          <div class="thumbnail">
-            <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-          </div><!-- /thumbnail -->
-        </div><!-- /col-sm-1 -->
+  <div id="comments-box">
 
-        <div class="col-sm-11">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <strong><%= comment.user.email %></strong> <span class="text-muted">commented 5 days ago</span>
-            </div>
-            <div class="panel-body">
-              <%= comment.body %>
-            </div><!-- /panel-body -->
-          </div><!-- /panel panel-default -->
-        </div><!-- /col-sm-5 -->
-      </div><!-- /row -->
+    <% @article.comments.each do |comment| %>
+        <div class="row">
+          <div class="col-sm-1">
+            <div class="thumbnail">
+              <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+            </div><!-- /thumbnail -->
+          </div><!-- /col-sm-1 -->
 
-  <% end %>
+          <div class="col-sm-11">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <strong><%= comment.user.email %></strong> <span class="text-muted">commented 5 days ago</span>
+              </div>
+              <div class="panel-body">
+                <%= comment.body %>
+              </div><!-- /panel-body -->
+            </div><!-- /panel panel-default -->
+          </div><!-- /col-sm-5 -->
+        </div><!-- /row -->
+    <% end %>
+
+  </div>
 </div>
 <div>
   <%= link_to 'Editar', edit_article_path(@article) %>
