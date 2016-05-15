@@ -18,7 +18,10 @@ class ArticlesController < ApplicationController
   #POST /articles
   def create
     #@article = Article.new(title: params[:article][:title], body: params[:article][:body])
-    @article = Article.new(article_params)
+    #@article = Article.new(article_params)
+
+    @article = current_user.articles.new(article_params)
+
     # @article.valid?
     # @article.invalid?
     if @article.save
