@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  include AASM
+
   belongs_to :user
   has_many :comments
   has_many :has_categories
@@ -24,6 +26,19 @@ class Article < ActiveRecord::Base
   #custom setter
   def categories=(value)
     @categories = value
+  end
+
+  aasm column: 'state' do
+    state :in_draft, initial: true
+    state :published
+
+    event :publish do
+      transitions from: :in_draft, to: :published
+    end
+
+    event :unpublish do
+      transitions from: :published, to: :in_draft
+    end
   end
 
   private
