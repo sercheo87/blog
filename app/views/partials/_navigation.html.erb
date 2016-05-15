@@ -16,10 +16,8 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li class="active"><%= link_to 'Inicio', root_path %></li>
-          <li><a href="#">Desing</a></li>
-          <li><a href="#">Programmer</a></li>
+          <li><%= link_to 'Articulos', articles_path %></li>
           <li role="separator" class="divider"></li>
-          <li><a href="#">Tecnologi</a></li>
           </li>
           <% if user_signed_in? %>
               <li>

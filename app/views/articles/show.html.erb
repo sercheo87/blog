@@ -3,6 +3,9 @@
 <% unless @article.user.nil? %>
     <p>Escrito por: <%= @article.user.email %></p>
 <% end %>
+<div class="field">
+  <%= image_tag @article.cover.url(:thumb) %>
+</div>
 <p>Visitas: <%= @article.visits_count %></p>
 <div>
   <%= @article.body %>

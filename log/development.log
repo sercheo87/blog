@@ -16473,3 +16473,902 @@ Processing by CommentsController#create as JSON
   [1m[35m (8.3ms)[0m  commit transaction
   Rendered comments/show.json.jbuilder (0.4ms)
 Completed 201 Created in 24ms (Views: 10.6ms | ActiveRecord: 8.8ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddCoverToArticles (20160515145310)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.8ms)[0m  [1mALTER TABLE "articles" ADD "cover_file_name" varchar[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "articles" ADD "cover_content_type" varchar
+  [1m[36m (0.1ms)[0m  [1mALTER TABLE "articles" ADD "cover_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  ALTER TABLE "articles" ADD "cover_updated_at" datetime
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160515145310"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/articles/10" for ::1 at 2016-05-15 10:02:00 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" WHERE ("articles"."title" = 'demo 5' AND "articles"."id" != 10) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "articles" SET "visits_count" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["visits_count", 70], ["updated_at", "2016-05-15 15:02:00.316911"], ["id", 10]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_form.html.erb (28.0ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered articles/show.html.erb within layouts/application (77.3ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_navigation.html.erb (2.6ms)
+Completed 200 OK in 962ms (Views: 904.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/articles/10" for ::1 at 2016-05-15 10:02:01 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mArticle Load (0.1ms)[0m  SELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1  [["id", 10]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" WHERE ("articles"."title" = 'demo 5' AND "articles"."id" != 10) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "articles" SET "visits_count" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["visits_count", 71], ["updated_at", "2016-05-15 15:02:01.241206"], ["id", 10]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_form.html.erb (3.1ms)
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?  [["article_id", 10]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered articles/show.html.erb within layouts/application (15.0ms)
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered partials/_navigation.html.erb (1.1ms)
+Completed 200 OK in 62ms (Views: 56.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/bootstrap.min.self-66fe84b79c6d5db31355296a8c9627d232721fe3ac3c31f3554ccc7e999279b6.css?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/scaffolds.self-2a183b3d02d6641d1614a16554fad4e5e5dc1721cf1cf5132211ed6f556d8294.css?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/comments.self-ac31f5bf7151d502b44c331917b5b1aa31f64896726c861203de568ca6533783.css?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/comments.self-44c0f9779f1ec84934c4686573ec2e2290dcf6134939bb4443d70e50c3d0caec.js?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/font-awesome.self-439e1d45a56e0ef00b68c07a2eb82179d3705c2b532243bd8a3e756043d430c9.css?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-15 10:02:01 -0500
+
+
+Started GET "/articles/new" for ::1 at 2016-05-15 10:02:11 -0500
+Processing by ArticlesController#new as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered articles/_form.html.erb (6.4ms)
+  Rendered articles/new.html.erb within layouts/application (9.3ms)
+  Rendered partials/_navigation.html.erb (0.2ms)
+Completed 200 OK in 94ms (Views: 76.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:02:11 -0500
+
+
+Started GET "/articles/new" for ::1 at 2016-05-15 10:03:52 -0500
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered articles/_form.html.erb (2.6ms)
+  Rendered articles/new.html.erb within layouts/application (4.9ms)
+  Rendered partials/_navigation.html.erb (0.4ms)
+Completed 200 OK in 96ms (Views: 66.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/bootstrap.min.self-66fe84b79c6d5db31355296a8c9627d232721fe3ac3c31f3554ccc7e999279b6.css?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/comments.self-ac31f5bf7151d502b44c331917b5b1aa31f64896726c861203de568ca6533783.css?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/font-awesome.self-439e1d45a56e0ef00b68c07a2eb82179d3705c2b532243bd8a3e756043d430c9.css?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/scaffolds.self-2a183b3d02d6641d1614a16554fad4e5e5dc1721cf1cf5132211ed6f556d8294.css?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/comments.self-44c0f9779f1ec84934c4686573ec2e2290dcf6134939bb4443d70e50c3d0caec.js?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:03:52 -0500
+
+
+Started POST "/articles" for ::1 at 2016-05-15 10:04:59 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"stkNEi0x1i9YMQTNxy2ktBYwtZdjenYnQ1phcz4r7XXwPnPE7WjJIHByOchTRnx7Czk3QndM4OyUYFwbJfSnmA==", "article"=>{"title"=>"foto blog", "cover"=>#<ActionDispatch::Http::UploadedFile:0x007fd5f67a5250 @tempfile=#<Tempfile:/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/RackMultipart20160515-36275-efl9xs.jpg>, @original_filename="twitter-linux.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[cover]\"; filename=\"twitter-linux.jpg\"\r\nContent-Type: image/jpeg\r\n">, "body"=>"detalle blog"}, "commit"=>"Guardar"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Command :: file -b --mime '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1gr9gwc.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-t5tpm9.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-t5tpm9.jpg[0]'
+Command :: convert '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-t5tpm9.jpg[0]' -auto-orient -resize "1280x720" '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/3869a3ad251fcb6053f0b979301c8ce920160515-36275-10l5x0c'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-t5tpm9.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-t5tpm9.jpg[0]'
+Command :: convert '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-t5tpm9.jpg[0]' -auto-orient -resize "800x600" '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/3869a3ad251fcb6053f0b979301c8ce920160515-36275-1ggn0ia'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."title" = 'foto blog' LIMIT 1
+Command :: file -b --mime '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1exodwv.jpg'
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "body", "cover_file_name", "cover_content_type", "cover_file_size", "cover_updated_at", "user_id", "visits_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "foto blog"], ["body", "detalle blog"], ["cover_file_name", "twitter-linux.jpg"], ["cover_content_type", "image/jpeg"], ["cover_file_size", 92225], ["cover_updated_at", "2016-05-15 15:04:59.593649"], ["user_id", 1], ["visits_count", 0], ["created_at", "2016-05-15 15:04:59.867008"], ["updated_at", "2016-05-15 15:04:59.867008"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/11
+Completed 302 Found in 305ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/articles/11" for ::1 at 2016-05-15 10:04:59 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE ("articles"."title" = 'foto blog' AND "articles"."id" != 11) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "articles" SET "visits_count" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["visits_count", 1], ["updated_at", "2016-05-15 15:04:59.906340"], ["id", 11]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_form.html.erb (1.4ms)
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 11]]
+  Rendered articles/show.html.erb within layouts/application (6.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered partials/_navigation.html.erb (1.2ms)
+Completed 200 OK in 49ms (Views: 37.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:05:00 -0500
+
+
+Started GET "/articles/11" for ::1 at 2016-05-15 10:11:12 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE ("articles"."title" = 'foto blog' AND "articles"."id" != 11) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "articles" SET "visits_count" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["visits_count", 2], ["updated_at", "2016-05-15 15:11:12.792866"], ["id", 11]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_form.html.erb (1.4ms)
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 11]]
+  Rendered articles/show.html.erb within layouts/application (5.5ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered partials/_navigation.html.erb (1.6ms)
+Completed 200 OK in 42ms (Views: 36.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/bootstrap.min.self-66fe84b79c6d5db31355296a8c9627d232721fe3ac3c31f3554ccc7e999279b6.css?body=1" for ::1 at 2016-05-15 10:11:12 -0500
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-15 10:11:12 -0500
+
+
+Started GET "/assets/font-awesome.self-439e1d45a56e0ef00b68c07a2eb82179d3705c2b532243bd8a3e756043d430c9.css?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/comments.self-ac31f5bf7151d502b44c331917b5b1aa31f64896726c861203de568ca6533783.css?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/scaffolds.self-2a183b3d02d6641d1614a16554fad4e5e5dc1721cf1cf5132211ed6f556d8294.css?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/comments.self-44c0f9779f1ec84934c4686573ec2e2290dcf6134939bb4443d70e50c3d0caec.js?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-15 10:11:13 -0500
+
+
+Started GET "/articles/11" for ::1 at 2016-05-15 10:11:32 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE ("articles"."title" = 'foto blog' AND "articles"."id" != 11) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "articles" SET "visits_count" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["visits_count", 3], ["updated_at", "2016-05-15 15:11:32.319724"], ["id", 11]]
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_form.html.erb (0.7ms)
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 11]]
+  Rendered articles/show.html.erb within layouts/application (4.4ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered partials/_navigation.html.erb (2.9ms)
+Completed 200 OK in 52ms (Views: 38.0ms | ActiveRecord: 9.7ms)
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/comments.self-ac31f5bf7151d502b44c331917b5b1aa31f64896726c861203de568ca6533783.css?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/bootstrap.min.self-66fe84b79c6d5db31355296a8c9627d232721fe3ac3c31f3554ccc7e999279b6.css?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/comments.self-44c0f9779f1ec84934c4686573ec2e2290dcf6134939bb4443d70e50c3d0caec.js?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/font-awesome.self-439e1d45a56e0ef00b68c07a2eb82179d3705c2b532243bd8a3e756043d430c9.css?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/scaffolds.self-2a183b3d02d6641d1614a16554fad4e5e5dc1721cf1cf5132211ed6f556d8294.css?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:11:32 -0500
+
+
+Started GET "/articles/11" for ::1 at 2016-05-15 10:12:27 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 11]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE ("articles"."title" = 'foto blog' AND "articles"."id" != 11) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "articles" SET "visits_count" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["visits_count", 4], ["updated_at", "2016-05-15 15:12:27.410822"], ["id", 11]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_form.html.erb (1.5ms)
+  [1m[36mComment Load (0.5ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 11]]
+  Rendered articles/show.html.erb within layouts/application (17.8ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered partials/_navigation.html.erb (1.9ms)
+Completed 200 OK in 78ms (Views: 54.4ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/bootstrap.min.self-66fe84b79c6d5db31355296a8c9627d232721fe3ac3c31f3554ccc7e999279b6.css?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/comments.self-ac31f5bf7151d502b44c331917b5b1aa31f64896726c861203de568ca6533783.css?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/font-awesome.self-439e1d45a56e0ef00b68c07a2eb82179d3705c2b532243bd8a3e756043d430c9.css?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/scaffolds.self-2a183b3d02d6641d1614a16554fad4e5e5dc1721cf1cf5132211ed6f556d8294.css?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/comments.self-44c0f9779f1ec84934c4686573ec2e2290dcf6134939bb4443d70e50c3d0caec.js?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:12:27 -0500
+
+
+Started GET "/articles/new" for ::1 at 2016-05-15 10:12:30 -0500
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered articles/_form.html.erb (3.3ms)
+  Rendered articles/new.html.erb within layouts/application (8.1ms)
+  Rendered partials/_navigation.html.erb (3.1ms)
+Completed 200 OK in 133ms (Views: 91.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:12:30 -0500
+
+
+Started POST "/articles" for ::1 at 2016-05-15 10:12:41 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kTAEi+NJyFjT8aHi2iw74AYTtCgrsny+pcpxwRRlxEPT13pdIxDXV/uynOdOR+MvGxo2/T+E6nVy8EypD7qOrg==", "article"=>{"title"=>"nueva foto", "cover"=>#<ActionDispatch::Http::UploadedFile:0x007fd5f9fa3f58 @tempfile=#<Tempfile:/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/RackMultipart20160515-36275-taimg0.jpg>, @original_filename="twitter-linux.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[cover]\"; filename=\"twitter-linux.jpg\"\r\nContent-Type: image/jpeg\r\n">, "body"=>""}, "commit"=>"Guardar"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Command :: file -b --mime '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1ktn7ua.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-lpspck.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-lpspck.jpg[0]'
+Command :: convert '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-lpspck.jpg[0]' -auto-orient -resize "1280x720" '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/e26f58c6bba5317b0285d1144e17fbe820160515-36275-g6daet'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-lpspck.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-lpspck.jpg[0]'
+Command :: convert '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-lpspck.jpg[0]' -auto-orient -resize "100x100" '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/e26f58c6bba5317b0285d1144e17fbe820160515-36275-33b077'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."title" = 'nueva foto' LIMIT 1
+Command :: file -b --mime '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1iaakix.jpg'
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  Rendered articles/_form.html.erb (1.4ms)
+  Rendered articles/new.html.erb within layouts/application (2.5ms)
+  Rendered partials/_navigation.html.erb (0.2ms)
+Completed 200 OK in 285ms (Views: 35.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:12:42 -0500
+
+
+Started GET "/assets/fontawesome-webfont-35fa8302dd7d3d191ebb7acac543efcfa2b85a0da573b3ab45cc122ffcc45ce5.woff?v=4.6.2" for ::1 at 2016-05-15 10:12:42 -0500
+
+
+Started POST "/articles" for ::1 at 2016-05-15 10:12:50 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7H+JqIyzRVLD2JP4tC5KAytxcN1hfuOvsenlK+/gvu6umPd+TOpaXeubrv0gRZLMNnjyCHVIdWRm09hD9D/0Aw==", "article"=>{"title"=>"nueva foto", "body"=>"nueva foto"}, "commit"=>"Guardar"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.2ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."title" = 'nueva foto' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "articles" ("title", "body", "user_id", "visits_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "nueva foto"], ["body", "nueva foto"], ["user_id", 1], ["visits_count", 0], ["created_at", "2016-05-15 15:12:50.136840"], ["updated_at", "2016-05-15 15:12:50.136840"]]
+  [1m[35m (9.2ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/12
+Completed 302 Found in 20ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/articles/12" for ::1 at 2016-05-15 10:12:50 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"12"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 12]]
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE ("articles"."title" = 'nueva foto' AND "articles"."id" != 12) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "articles" SET "visits_count" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["visits_count", 1], ["updated_at", "2016-05-15 15:12:50.166675"], ["id", 12]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_form.html.erb (2.1ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 12]]
+  Rendered articles/show.html.erb within layouts/application (8.8ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered partials/_navigation.html.erb (2.2ms)
+Completed 200 OK in 52ms (Views: 42.3ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/covers/thumb/missing.png" for ::1 at 2016-05-15 10:12:50 -0500
+
+ActionController::RoutingError (No route matches [GET] "/covers/thumb/missing.png"):
+  actionpack (4.2.6) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.6) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.6) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.6) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.6) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.6) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.6) lib/rails/engine.rb:518:in `call'
+  railties (4.2.6) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/Cellar/ruby/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:140:in `service'
+  /usr/local/Cellar/ruby/2.3.1/lib/ruby/2.3.0/webrick/httpserver.rb:96:in `run'
+  /usr/local/Cellar/ruby/2.3.1/lib/ruby/2.3.0/webrick/server.rb:296:in `block in start_thread'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.2ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/routes/_table.html.erb (6.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/actionpack-4.2.6/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (107.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.1ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.4ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (63.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.3.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (150.9ms)
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:12:50 -0500
+
+
+Started POST "/articles" for ::1 at 2016-05-15 10:12:59 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7H+JqIyzRVLD2JP4tC5KAytxcN1hfuOvsenlK+/gvu6umPd+TOpaXeubrv0gRZLMNnjyCHVIdWRm09hD9D/0Aw==", "article"=>{"title"=>"nueva foto", "cover"=>#<ActionDispatch::Http::UploadedFile:0x007fd5faf08de0 @tempfile=#<Tempfile:/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/RackMultipart20160515-36275-1luzhhs.jpg>, @original_filename="twitter-linux.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[cover]\"; filename=\"twitter-linux.jpg\"\r\nContent-Type: image/jpeg\r\n">, "body"=>"nueva foto"}, "commit"=>"Guardar"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Command :: file -b --mime '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1578gw4.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-x23933.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-x23933.jpg[0]'
+Command :: convert '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-x23933.jpg[0]' -auto-orient -resize "1280x720" '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/adf020671698def6515928a4efbf081e20160515-36275-12ca4ri'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-x23933.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-x23933.jpg[0]'
+Command :: convert '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-x23933.jpg[0]' -auto-orient -resize "100x100" '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/adf020671698def6515928a4efbf081e20160515-36275-hbzxw1'
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE "articles"."title" = 'nueva foto' LIMIT 1[0m
+Command :: file -b --mime '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-qgtmrc.jpg'
+  [1m[35m (0.3ms)[0m  rollback transaction
+  Rendered articles/_form.html.erb (1.6ms)
+  Rendered articles/new.html.erb within layouts/application (2.7ms)
+  Rendered partials/_navigation.html.erb (1.0ms)
+Completed 200 OK in 268ms (Views: 35.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:13:00 -0500
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:13:04 -0500
+
+
+Started GET "/articles/new" for ::1 at 2016-05-15 10:13:06 -0500
+Processing by ArticlesController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered articles/_form.html.erb (0.9ms)
+  Rendered articles/new.html.erb within layouts/application (2.1ms)
+  Rendered partials/_navigation.html.erb (0.2ms)
+Completed 200 OK in 40ms (Views: 37.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/font-awesome.self-439e1d45a56e0ef00b68c07a2eb82179d3705c2b532243bd8a3e756043d430c9.css?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/comments.self-ac31f5bf7151d502b44c331917b5b1aa31f64896726c861203de568ca6533783.css?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/bootstrap.min.self-66fe84b79c6d5db31355296a8c9627d232721fe3ac3c31f3554ccc7e999279b6.css?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/scaffolds.self-2a183b3d02d6641d1614a16554fad4e5e5dc1721cf1cf5132211ed6f556d8294.css?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/comments.self-44c0f9779f1ec84934c4686573ec2e2290dcf6134939bb4443d70e50c3d0caec.js?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:13:06 -0500
+
+
+Started POST "/articles" for ::1 at 2016-05-15 10:13:22 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GoNEPuEtHu+cA1dlDn0D1YOJb6321BXbn+nemLOt8v5YZDroIXQB4LRAamCaFtsanoDteOLigxBI0+PwqHK4Ew==", "article"=>{"title"=>"nueva foto 2", "cover"=>#<ActionDispatch::Http::UploadedFile:0x007fd5f9dd6248 @tempfile=#<Tempfile:/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/RackMultipart20160515-36275-uhouh5.jpg>, @original_filename="twitter-linux.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"article[cover]\"; filename=\"twitter-linux.jpg\"\r\nContent-Type: image/jpeg\r\n">, "body"=>"nueva foto 2"}, "commit"=>"Guardar"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Command :: file -b --mime '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-94qaw9.jpg'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1pxiwrp.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1pxiwrp.jpg[0]'
+Command :: convert '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1pxiwrp.jpg[0]' -auto-orient -resize "1280x720" '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/7deb9e0790432053796411a5f80a241820160515-36275-thrdmr'
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1pxiwrp.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1pxiwrp.jpg[0]'
+Command :: convert '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1pxiwrp.jpg[0]' -auto-orient -resize "100x100" '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/7deb9e0790432053796411a5f80a241820160515-36275-qfwd2x'
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mArticle Exists (0.1ms)[0m  SELECT  1 AS one FROM "articles" WHERE "articles"."title" = 'nueva foto 2' LIMIT 1
+Command :: file -b --mime '/var/folders/b5/4jk1h8gd5j79kv6b8cfh82r40000gn/T/ef15cb47c6971430461aaf595d9755f820160515-36275-1bvjwrf.jpg'
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "articles" ("title", "body", "cover_file_name", "cover_content_type", "cover_file_size", "cover_updated_at", "user_id", "visits_count", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["title", "nueva foto 2"], ["body", "nueva foto 2"], ["cover_file_name", "twitter-linux.jpg"], ["cover_content_type", "image/jpeg"], ["cover_file_size", 92225], ["cover_updated_at", "2016-05-15 15:13:22.471310"], ["user_id", 1], ["visits_count", 0], ["created_at", "2016-05-15 15:13:22.703119"], ["updated_at", "2016-05-15 15:13:22.703119"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/articles/13
+Completed 302 Found in 260ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/articles/13" for ::1 at 2016-05-15 10:13:22 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE ("articles"."title" = 'nueva foto 2' AND "articles"."id" != 13) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "articles" SET "visits_count" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["visits_count", 1], ["updated_at", "2016-05-15 15:13:22.740038"], ["id", 13]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_form.html.erb (1.0ms)
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 13]]
+  Rendered articles/show.html.erb within layouts/application (5.7ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered partials/_navigation.html.erb (1.5ms)
+Completed 200 OK in 50ms (Views: 44.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:13:23 -0500
+
+
+Started GET "/articles/13" for ::1 at 2016-05-15 10:17:50 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mArticle Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "articles" WHERE ("articles"."title" = 'nueva foto 2' AND "articles"."id" != 13) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "articles" SET "visits_count" = ?, "updated_at" = ? WHERE "articles"."id" = ?  [["visits_count", 2], ["updated_at", "2016-05-15 15:17:50.221055"], ["id", 13]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_form.html.erb (1.3ms)
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 13]]
+  Rendered articles/show.html.erb within layouts/application (6.2ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered partials/_navigation.html.erb (2.2ms)
+Completed 200 OK in 72ms (Views: 57.3ms | ActiveRecord: 10.3ms)
+
+
+Started GET "/assets/bootstrap.min.self-66fe84b79c6d5db31355296a8c9627d232721fe3ac3c31f3554ccc7e999279b6.css?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/font-awesome.self-439e1d45a56e0ef00b68c07a2eb82179d3705c2b532243bd8a3e756043d430c9.css?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/scaffolds.self-2a183b3d02d6641d1614a16554fad4e5e5dc1721cf1cf5132211ed6f556d8294.css?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/comments.self-ac31f5bf7151d502b44c331917b5b1aa31f64896726c861203de568ca6533783.css?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/comments.self-44c0f9779f1ec84934c4686573ec2e2290dcf6134939bb4443d70e50c3d0caec.js?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:17:50 -0500
+
+
+Started GET "/articles" for ::1 at 2016-05-15 10:17:52 -0500
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (2.0ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered partials/_navigation.html.erb (1.5ms)
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/fontawesome-webfont-35fa8302dd7d3d191ebb7acac543efcfa2b85a0da573b3ab45cc122ffcc45ce5.woff?v=4.6.2" for ::1 at 2016-05-15 10:17:52 -0500
+
+
+Started GET "/articles" for ::1 at 2016-05-15 10:18:26 -0500
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (2.3ms)
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered partials/_navigation.html.erb (2.7ms)
+Completed 200 OK in 45ms (Views: 44.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/articles.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/bootstrap.min.self-66fe84b79c6d5db31355296a8c9627d232721fe3ac3c31f3554ccc7e999279b6.css?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/scaffolds.self-2a183b3d02d6641d1614a16554fad4e5e5dc1721cf1cf5132211ed6f556d8294.css?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/font-awesome.self-439e1d45a56e0ef00b68c07a2eb82179d3705c2b532243bd8a3e756043d430c9.css?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/comments.self-ac31f5bf7151d502b44c331917b5b1aa31f64896726c861203de568ca6533783.css?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/jquery_ujs.self-e87806d0cf4489aeb1bb7288016024e8de67fd18db693fe026fe3907581e53cd.js?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/bootstrap.min.self-d475868eedd65d9ab19f96e8574a2c8ce91ba7d64b8bbfa47cd55591a956ed67.js?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/application.self-129932ab10f1d1e5a4621657c626d393bb0718716393ddba5dc5b25d244bd3d9.css?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/comments.self-44c0f9779f1ec84934c4686573ec2e2290dcf6134939bb4443d70e50c3d0caec.js?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/bootstrap.min.css.map" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/articles.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/jquery.self-660adc51e0224b731d29f575a6f1ec167ba08ad06ed5deca4f1e8654c135bf4c.js?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-05-15 10:18:27 -0500
+
+
+Started GET "/assets/fontawesome-webfont-35fa8302dd7d3d191ebb7acac543efcfa2b85a0da573b3ab45cc122ffcc45ce5.woff?v=4.6.2" for ::1 at 2016-05-15 10:18:27 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20160515151916)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20160515151916"]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_articles_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_article_id' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+
+  [1m[36m (0.1ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateCategories (20160515152015)
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "categories" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "color" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  rollback transaction
