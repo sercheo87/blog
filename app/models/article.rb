@@ -19,7 +19,8 @@ class Article < ActiveRecord::Base
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
   scope :publicados, -> { where(state: 'published') }
-  scope :ultimos, -> { order('created_at DESC').limit(10) }
+  #scope :ultimos, -> { order('created_at DESC').limit(10) }
+  scope :ultimos, -> { order('created_at DESC') }
 
   def update_visits_count
     self.save if self.visits_count.nil?
