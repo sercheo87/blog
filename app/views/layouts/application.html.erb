@@ -13,10 +13,12 @@
 </head>
 <body>
 
-<%= render('partials/navigation')%>
+<%= render('partials/navigation') %>
 
-<div class="alert alert-warning" role="alert"><%= notice %></div>
-<div class="alert alert-danger" role="alert"><%= alert %></div>
+<div style="<%= "display:none;" if notice.nil? and alert.nil? %>">
+  <div class="alert alert-warning" role="alert"><%= notice %></div>
+  <div class="alert alert-danger" role="alert"><%= alert %></div>
+</div>
 
 <div class="container">
   <%= yield %>

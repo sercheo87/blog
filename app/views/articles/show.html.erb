@@ -1,51 +1,53 @@
-<h1><%= @article.title %></h1>
-<!--unless == if not-->
-<% unless @article.user.nil? %>
-    <p>Escrito por: <%= @article.user.email %></p>
-<% end %>
+<article>
+  <%= article_cover @article.cover.url %>
+  <h1><%= @article.title %></h1>
+  <!--unless == if not-->
+  <% unless @article.user.nil? %>
+      <p>Escrito por: <%= @article.user.email %></p>
+  <% end %>
 
-<% @article.categories.each do |category| %>
-    <%= link_to category.name, category, class: 'label', style: "background-color: #{category.color}" %>
-<% end %>
+  <% @article.categories.each do |category| %>
+      <%= link_to category.name, category, class: 'label', style: "background-color: #{category.color}" %>
+  <% end %>
 
 
-<div class="field">
-  <%= image_tag @article.cover.url(:thumb) %>
-</div>
-
-<p>Visitas: <%= @article.visits_count %></p>
-<div>
-  <%= Sanitize.fragment(@article.body.html_safe, Sanitize::Config::RELAXED) %>
-</div>
-<div>
-  <h3>Comentarios</h3>
-  <%= render 'comments/form' %>
-  <div id="comments-box">
-
-    <% @article.comments.each do |comment| %>
-        <div class="row">
-          <div class="col-sm-1">
-            <div class="thumbnail">
-              <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
-            </div><!-- /thumbnail -->
-          </div><!-- /col-sm-1 -->
-
-          <div class="col-sm-11">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <strong><%= comment.user.email %></strong> <span class="text-muted">commented 5 days ago</span>
-              </div>
-              <div class="panel-body">
-                <%= comment.body %>
-              </div><!-- /panel-body -->
-            </div><!-- /panel panel-default -->
-          </div><!-- /col-sm-5 -->
-        </div><!-- /row -->
-    <% end %>
-
+  <div class="field">
+    <%= image_tag @article.cover.url(:thumb) %>
   </div>
-</div>
-<div>
-  <%= link_to 'Editar', edit_article_path(@article) %>
-</div>
 
+  <p>Visitas: <%= @article.visits_count %></p>
+  <div>
+    <%= Sanitize.fragment(@article.body.html_safe, Sanitize::Config::RELAXED) %>
+  </div>
+  <div>
+    <h3>Comentarios</h3>
+    <%= render 'comments/form' %>
+    <div id="comments-box">
+
+      <% @article.comments.each do |comment| %>
+          <div class="row">
+            <div class="col-sm-1">
+              <div class="thumbnail">
+                <img class="img-responsive user-photo" src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png">
+              </div><!-- /thumbnail -->
+            </div><!-- /col-sm-1 -->
+
+            <div class="col-sm-11">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <strong><%= comment.user.email %></strong> <span class="text-muted">commented 5 days ago</span>
+                </div>
+                <div class="panel-body">
+                  <%= comment.body %>
+                </div><!-- /panel-body -->
+              </div><!-- /panel panel-default -->
+            </div><!-- /col-sm-5 -->
+          </div><!-- /row -->
+      <% end %>
+
+    </div>
+  </div>
+  <div>
+    <%= link_to 'Editar', edit_article_path(@article) %>
+  </div>
+</article>
