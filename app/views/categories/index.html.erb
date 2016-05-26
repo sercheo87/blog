@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Categories</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Color</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td>
+          <span style="background-color: <%= category.color %>" class="label label-default"><%= category.color %></span>
+        </td>
+        <td>
+          <div class="btn-group" role="toolbar" aria-label="">
+            <button class="btn btn-info" role="group">
+              <i class="fa fa-eye" aria-hidden="true"></i><%= link_to '', category %>
+            </button>
+            <button class="btn btn-warning" role="group">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i><%= link_to '', edit_category_path(category) %>
+            </button>
+            <button class="btn btn-danger" role="group">
+              <i class="fa fa-trash-o" aria-hidden="true"></i><%= link_to '', category, method: :delete, data: {confirm: 'Are you sure?'} %>
+            </button>
+          </div>
+        </td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Category', new_category_path %>
